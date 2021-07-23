@@ -1,7 +1,9 @@
 let express = require('express');
 let router = express.Router();
 
-router.get('/')
+let controller = require('../controllers/autosController')
+
+router.get('/', controller.index);
 
 
 module.exports = router;
