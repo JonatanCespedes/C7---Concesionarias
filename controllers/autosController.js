@@ -28,10 +28,27 @@ let autosController = {
         res.send(filtradosPorMarca)
     },
     dato: (req, res) => {
-        let datoParams = req.params.dato;
-        switch (typeof datoParams) {
-            case Number:
+        let marcaParams = req.params.marca.trim();
+        let datoParams = req.params.dato.trim();
+
+        let filtradosPorMarca = [];
+
+        autosController.autos().forEach(auto => {
+            if(auto.marca.toLowerCase() === marcaParams.toLowerCase()){
+                filtradosPorMarca.push(auto)
+            }
+        })
+
+        let filtradosPorDato = filtradosPorMarca.filter(auto => {
+            return auto.anio == datoParams || auto.color.toLowerCase() === datoParams.toLowerCase()
+        })
+
+        if(filtradosPorDato.length > 0){
+            res.send(filtradosPorDato)
+        }else {
+            res.send("No hay datos que coincidan con tu busqueda")
         }
+        
     }
 }
 
