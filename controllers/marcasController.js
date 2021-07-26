@@ -12,7 +12,7 @@ module.exports = {
            })
         });
 
-        let arrayFiltrado = marcas.filter((x, i, a) => a.indexOf(x) == i)
+        let arrayFiltrado = marcas.filter((auto, index, array) => array.indexOf(auto) == index)
         
         res.write(`
         Nuestras Marcas: 
@@ -26,6 +26,29 @@ module.exports = {
             `)
         })
         res.end()
+
+       /*  index: (req, res) =>{
+            res.set({'content-type':'text/plain;charset=utf-8'})
+            let marcas =[]
+            db.forEach((sucursal) => {
+                sucursal.autos.forEach((auto) => {
+                    if(!marcas.includes(auto.marca)){
+                        marcas.push(auto.marca)
+                    }
+                })
+            })
+            res.write(`Estas son las marcas que nos acompañan:\n`)
+            res.write(`*****************************`)
+            marcas.forEach((marcas) => {
+                res.write(`
+                ----${marcas}----
+                `)
+            })
+            res.write(`
+            *****************************`)
+            res.end();
+        }, */
+    
     },
     marca : (req, res) => {
         let marcaParams = req.params.marca.trim();
