@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('./partials/head.ejs')  %> 
+<body>
+    <%- include('./partials/header.ejs')  %> 
+    <h1>Sucursal: <%= sucursal.sucursal  %> </h1>
+    <h3>Direccion: <%= sucursal.direccion %></h3>
+    <h3>Teléfono: <%= sucursal.telefono %></h3>
+    <h3>Cantidad de autos: <%= sucursal.autos.length %></h3>
+
+    <div class="container d-flex flex-wrap">
+        <% sucursal.autos.forEach( auto => { %>
+            <div class="card m-3" style="width: 18rem;">
+                <img src="/images/<%- auto.imagen %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><%= auto.marca %></h5>
+                  <p class="card-text">Modelo: <%= auto.modelo %></p>
+                  <p class="card-text">Año: <%= auto.anio %></p>
+                  <p class="card-text">Color: <%= auto.color %></p>
+                  <a href="/sucursales/<%= sucursal.sucursal %>" class="btn btn-primary">Ir a sucursal</a>
+                </div>
+              </div>
+        <% }) %>
+    </div>
+    <%- include('./partials/scripts.ejs')  %> 
+</body>
+</html>
