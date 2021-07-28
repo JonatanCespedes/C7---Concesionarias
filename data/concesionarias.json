@@ -526,6 +526,104 @@
                 "imagen": "auto.jpg"
             }
         ]
+    },
+    {
+        "sucursal": "Comision 7",
+        "direccion": "Av. Pres. Juan Domingo Perón 2043, B1663 San Miguel, Provincia de Buenos Aires",
+        "telefono": "(011) 4451-5565",
+        "imagen": "sucursal.jpg",
+        "autos": [{
+                "marca": "nissan",
+                "modelo": "note",
+                "anio": 2018,
+                "color": "red",
+                "imagen": "auto.jpg"
+            },
+            {
+                "marca": "chevrolet",
+                "modelo": "camaro",
+                "anio": 2018,
+                "color": "white",
+                "imagen": "auto.jpg"
+            },
+            {
+                "marca": "chevrolet",
+                "modelo": "onix",
+                "anio": 2016,
+                "color": "gray",
+                "imagen": "auto.jpg"
+            },
+            {
+                "marca": "honda",
+                "modelo": "civic",
+                "anio": 2020,
+                "color": "black",
+                "imagen": "auto.jpg"
+            },
+            {
+                "marca": "audi",
+                "modelo": "a6",
+                "anio": 2016,
+                "color": "red",
+                "imagen": "auto.jpg"
+            },
+            {
+                "marca": "nissan",
+                "modelo": "x-trail",
+                "anio": 2016,
+                "color": "gray",
+                "imagen": "auto.jpg"
+            },
+            {
+                "marca": "peugeot",
+                "modelo": "2008",
+                "anio": 2020,
+                "color": "green",
+                "imagen": "auto.jpg"
+            },
+            {
+                "marca": "toyota",
+                "modelo": "hilux",
+                "anio": 2020,
+                "color": "gray",
+                "imagen": "auto.jpg"
+            },
+            {
+                "marca": "volkswagen",
+                "modelo": "saveiro",
+                "anio": 2020,
+                "color": "blue",
+                "imagen": "auto.jpg"
+            },
+            {
+                "marca": "fiat",
+                "modelo": "golf",
+                "anio": 2020,
+                "color": "gray",
+                "imagen": "auto.jpg"
+            },
+            {
+                "marca": "fiat",
+                "modelo": "palio",
+                "anio": 2017,
+                "color": "white",
+                "imagen": "auto.jpg"
+            },
+            {
+                "marca": "peugeot",
+                "modelo": "307",
+                "anio": 2020,
+                "color": "gray",
+                "imagen": "auto.jpg"
+            },
+            {
+                "marca": "renault",
+                "modelo": "sandero",
+                "anio": 2020,
+                "color": "gray",
+                "imagen": "auto.jpg"
+            }
+        ]
     }
 
 ]
