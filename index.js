@@ -7,6 +7,11 @@ let homeRouter = require('./routes/home');
 let marcasRouter = require('./routes/marcas');
 let sucursalesRouter = require('./routes/sucursales');
 
+/* Vistas */
+app.set("view engine", "ejs");
+
+app.use(express.static('public'))
+
 /* Rutas */
 app.use('/', homeRouter);
 app.use('/sucursales', sucursalesRouter);
