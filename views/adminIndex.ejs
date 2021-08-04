@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('./partials/head.ejs')  %> 
+<body>
+    <%- include('./partials/header.ejs')  %> 
+    <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Autos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% db.forEach((sucursal, index) => { %>
+            <tr>
+              <th scope="row"><%- index %> </th>
+              <td><%- sucursal.sucursal %> </td>
+              <td><%- sucursal.direccion %></td>
+              <td><%- sucursal.telefono %></td>
+              <td><%- sucursal.autos.length %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <%- include('./partials/scripts.ejs')  %> 
+</body>
+</html>
