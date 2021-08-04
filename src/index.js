@@ -1,5 +1,6 @@
 let express = require('express');
 let app = express();
+let path = require('path')
 
 /* Enrutadores */
 let autosRouter = require('./routes/autos');
@@ -8,6 +9,7 @@ let sucursalesRouter = require('./routes/sucursales');
 let adminRouter = require('./routes/admin');
 
 /* Vistas */
+app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
 
 /* Middlewares */
