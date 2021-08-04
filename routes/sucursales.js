@@ -4,7 +4,6 @@ let router = express.Router();
 let controller = require('../controllers/sucursalesController')
 
 /* GET Sucursal */
-router.get('/:sucursal', controller.sucursal)
-
+router.get('/:IDsucursal', controller.sucursal)
 
 module.exports = router;

@@ -1,5 +1,7 @@
 let fs = require('fs');
 
-let dbParseado = JSON.parse(fs.readFileSync('./data/concesionarias.json', 'utf-8'))
+module.exports = {
+    getSucursales : JSON.parse(fs.readFileSync('./data/concesionarias.json', 'utf-8')),
+    getAutos : JSON.parse(fs.readFileSync('./data/autos.json', 'utf-8')),
+}
 
-module.exports = dbParseado;

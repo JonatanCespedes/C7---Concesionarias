@@ -1,10 +1,10 @@
-let db = require('../data/dataBase')
+let { getSucursales } = require('../data/dataBase')
 
 module.exports = {
     index: (req, res) => {
         res.render('home', {
-            titulo: "Bienvenid@s a nuestro sitio",
-            sucursales: db
+            titulo: "Conocé nuestras sucursales",
+            sucursales: getSucursales,
         })
     }
 }

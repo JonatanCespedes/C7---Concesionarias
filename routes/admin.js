@@ -1,8 +1,11 @@
 let express = require('express');
 let router = express.Router();
-let { sucursal, sucursales, formAgregarSucursal, agregarSucursal } = require('../controllers/adminController')
+let { sucursal, sucursales, formAgregarSucursal, agregarSucursal, index } = require('../controllers/adminController')
 
-/* GET index / Mostrar todas las sucursales */
+/* GET Index / Index del admin */
+router.get('/', index)
+
+/* GET Sucursales / Mostrar todas las sucursales */
 router.get('/sucursales', sucursales)
 
 /* GET :sucursal / Mostrar de la sucursal el listado de autos */

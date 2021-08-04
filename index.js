@@ -4,7 +4,6 @@ let app = express();
 /* Enrutadores */
 let autosRouter = require('./routes/autos');
 let homeRouter = require('./routes/home');
-let marcasRouter = require('./routes/marcas');
 let sucursalesRouter = require('./routes/sucursales');
 let adminRouter = require('./routes/admin');
 
@@ -19,7 +18,6 @@ app.use(express.json());
 /* Rutas */
 app.use('/', homeRouter);
 app.use('/sucursales', sucursalesRouter);
-app.use('/marcas', marcasRouter);
 app.use('/autos', autosRouter);
 app.use('/admin', adminRouter);
 
