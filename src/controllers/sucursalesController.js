@@ -9,16 +9,14 @@ module.exports = {
             return element.id === +id_sucursal
         }) 
         
-        if(sucursal !== undefined){
-            let autos = getAutos.filter(auto => {
-               return auto.sucursal === +id_sucursal
-            })
-            res.render('sucursal', {
-                sucursal,
-                autos
-            })
-        }else{
-            
-        }
+        let autos = getAutos.filter(auto => {
+            return auto.sucursal === +id_sucursal
+        })
+        
+        res.render('sucursal', {
+            sucursal,
+            autos
+        })
+        
     }
 }

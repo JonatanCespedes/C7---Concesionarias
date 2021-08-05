@@ -3,7 +3,11 @@
     <%- include('../partials/head.ejs')  %> 
 <body>
     <%- include('../partials/headerAdmin.ejs')  %> 
-    <table class="table table-dark table-striped">
+    <main class="container">
+      <div class="p-3 text-end">
+        <a class="btn btn-secondary" href="/admin/agregarSucursal">AGREGAR</a>
+      </div>
+      <table class="table table-dark table-striped">
         <thead>
           <tr>
             <th scope="col">ID</th>
@@ -40,6 +44,8 @@
           <% }) %>
         </tbody>
       </table>
+    </main>
+   
     <%- include('../partials/scripts.ejs')  %> 
 </body>
 </html>

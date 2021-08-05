@@ -1,4 +1,4 @@
-let { getSucursales, getAutos} = require('../data/dataBase');
+let { getSucursales, getAutos, addSucursal} = require('../data/dataBase');
 
 
 module.exports = {
@@ -20,9 +20,29 @@ module.exports = {
 
     },
     formAgregarSucursal: (req, res) => {
-
+        res.render('admin/agregarSucursal')
     },
     agregarSucursal: (req, res) => {
+        let lastId = 1;
 
+        getSucursales.forEach(sucursal => {
+            if(sucursal.id > lastId){
+                lastId = sucursal.id
+            }
+        })
+
+        let nuevaSucursal = {
+            id: lastId + 1,
+            nombre: req.body.nombre.trim(),
+            direccion: req.body.direccion.trim(),
+            telefono: req.body.telefono.trim(),
+            imagen: "default-image.png"
+        }
+
+        getSucursales.push(nuevaSucursal)
+
+        addSucursal(getSucursales);
+
+        res.redirect('/admin/sucursales')        
     },
 }
