@@ -1,6 +1,7 @@
 let express = require('express');
 let app = express();
-let path = require('path')
+let path = require('path');
+let methodOverride = require('method-override')
 
 /* Enrutadores */
 let autosRouter = require('./routes/autos');
@@ -12,6 +13,8 @@ let adminRouter = require('./routes/admin');
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
 
+app.use(methodOverride('_method'));
+
 /* Middlewares */
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
@@ -22,6 +25,11 @@ app.use('/', homeRouter);
 app.use('/sucursales', sucursalesRouter);
 app.use('/autos', autosRouter);
 app.use('/admin', adminRouter);
+
+/* Vista not found */
+app.use((req, res, next) => {
+    res.status(404).render('not-found')
+})
 
 
 app.listen(3000, () => { console.log("Servidor levantado")})

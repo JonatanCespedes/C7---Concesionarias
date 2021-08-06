@@ -1,6 +1,12 @@
 let express = require('express');
 let router = express.Router();
-let { sucursal, sucursales, formAgregarSucursal, agregarSucursal, index } = require('../controllers/adminController')
+let { sucursal, 
+    sucursales, 
+    formAgregarSucursal, 
+    agregarSucursal, 
+    index,
+    editForm,
+    editarSucursal } = require('../controllers/adminController')
 
 /* GET Index / Index del admin */
 router.get('/', index)
@@ -15,6 +21,11 @@ router.get('/sucursal/:id', sucursal)
 router.get('/agregarSucursal', formAgregarSucursal);
 /* POST Formulario / Captura los datos para Agregar sucursal */
 router.post('/agregarSucursal', agregarSucursal);
+
+/* GET - Muestra formulario de edicion */
+router.get('/editarSucursal/:id', editForm);
+/* PUT - Recibe los datos de edicion */
+router.put('/editarSucursal/:id', editarSucursal);
 
 
 module.exports = router;

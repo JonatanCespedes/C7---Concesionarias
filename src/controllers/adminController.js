@@ -31,11 +31,13 @@ module.exports = {
             }
         })
 
+        let { nombre, direccion, telefono} = req.body
+
         let nuevaSucursal = {
             id: lastId + 1,
-            nombre: req.body.nombre.trim(),
-            direccion: req.body.direccion.trim(),
-            telefono: req.body.telefono.trim(),
+            nombre: nombre.trim(),
+            direccion: direccion.trim(),
+            telefono: telefono.trim(),
             imagen: "default-image.png"
         }
 
@@ -45,4 +47,26 @@ module.exports = {
 
         res.redirect('/admin/sucursales')        
     },
+    editForm: (req, res) => {
+        let sucursal = getSucursales.find(sucursal => {
+            return sucursal.id === +req.params.id
+        })
+
+        res.render('admin/editarSucursal', {
+            sucursal
+        })
+    },
+    editarSucursal: (req, res) => {
+        let { nombre, direccion, telefono } = req.body;
+
+        getSucursales.forEach(sucursal => {
+            if(sucursal.id === +req.params.id){
+                sucursal.id = sucursal.id,
+                sucursal.nombre = nombre,
+                sucursal.direccion = direccion,
+                sucursal.telefono = telefono,
+                sucursal.imagen = "sucursal.jpg"
+            }
+        })
+    }
 }
