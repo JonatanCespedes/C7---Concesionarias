@@ -1,4 +1,4 @@
-let { getSucursales, getAutos, addSucursal} = require('../data/dataBase');
+let { getSucursales, getAutos, writeJson} = require('../data/dataBase');
 
 
 module.exports = {
@@ -43,7 +43,7 @@ module.exports = {
 
         getSucursales.push(nuevaSucursal)
 
-        addSucursal(getSucursales);
+        writeJson(getSucursales);
 
         res.redirect('/admin/sucursales')        
     },
@@ -65,8 +65,24 @@ module.exports = {
                 sucursal.nombre = nombre,
                 sucursal.direccion = direccion,
                 sucursal.telefono = telefono,
-                sucursal.imagen = "sucursal.jpg"
+                sucursal.imagen = "default-image.png"
             }
         })
+
+        writeJson(getSucursales);
+
+        res.redirect('/admin/sucursales')
+    },
+    borrarSucursal: (req, res) => {
+        getSucursales.forEach(sucursal => {
+            if(sucursal.id === +req.params.id){
+                let sucursalAEliminar = getSucursales.indexOf(sucursal);
+                getSucursales.splice(sucursalAEliminar, 1)
+            }
+        })
+
+        writeJson(getSucursales);
+        
+        res.redirect('/admin/sucursales')
     }
 }

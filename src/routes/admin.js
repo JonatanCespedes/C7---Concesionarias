@@ -6,7 +6,8 @@ let { sucursal,
     agregarSucursal, 
     index,
     editForm,
-    editarSucursal } = require('../controllers/adminController')
+    editarSucursal,
+    borrarSucursal } = require('../controllers/adminController')
 
 /* GET Index / Index del admin */
 router.get('/', index)
@@ -27,5 +28,7 @@ router.get('/editarSucursal/:id', editForm);
 /* PUT - Recibe los datos de edicion */
 router.put('/editarSucursal/:id', editarSucursal);
 
+/* DELETE - Borra una sucursal */
+router.delete('/eliminarSucursal/:id', borrarSucursal)
 
 module.exports = router;
