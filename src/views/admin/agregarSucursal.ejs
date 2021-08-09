@@ -6,7 +6,7 @@
     <main class="container">
         <h3 class="text-center">Agregar sucursal</h3>
         <div class="container col-md-4">
-            <form class="row g-3" action="/admin/agregarSucursal" method="POST">
+            <form class="row g-3" action="/admin/agregarSucursal" method="POST" enctype="multipart/form-data">
                 <div class="col-12">
                     <label for="inputName" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="inputName" name="nombre">
@@ -18,6 +18,10 @@
                 <div class="col-12">
                     <label for="inputTel" class="form-label">Teléfono</label>
                     <input type="tel" class="form-control" id="inputTel" name="telefono">
+                </div>
+                <div class="col-12">
+                    <label for="inputFile" class="form-label">Imagen</label>
+                    <input type="file" class="form-control" name="image" id="inputFile">
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary">AGREGAR</button>

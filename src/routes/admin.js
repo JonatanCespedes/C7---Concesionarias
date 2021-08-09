@@ -7,7 +7,8 @@ let { sucursal,
     index,
     editForm,
     editarSucursal,
-    borrarSucursal } = require('../controllers/adminController')
+    borrarSucursal } = require('../controllers/adminController');
+let uploadFile = require('../middlewares/uploadFiles');
 
 /* GET Index / Index del admin */
 router.get('/', index)
@@ -21,7 +22,7 @@ router.get('/sucursal/:id', sucursal)
 /* GET Formulario / Me muestra el formulario para Agregar sucursal */
 router.get('/agregarSucursal', formAgregarSucursal);
 /* POST Formulario / Captura los datos para Agregar sucursal */
-router.post('/agregarSucursal', agregarSucursal);
+router.post('/agregarSucursal', uploadFile.single('image'),agregarSucursal);
 
 /* GET - Muestra formulario de edicion */
 router.get('/editarSucursal/:id', editForm);

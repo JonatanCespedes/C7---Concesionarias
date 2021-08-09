@@ -24,22 +24,23 @@ module.exports = {
     },
     agregarSucursal: (req, res) => {
         let lastId = 1;
-
+        
         getSucursales.forEach(sucursal => {
             if(sucursal.id > lastId){
                 lastId = sucursal.id
             }
         })
 
-        let { nombre, direccion, telefono} = req.body
+        let { nombre, direccion, telefono } = req.body
 
         let nuevaSucursal = {
             id: lastId + 1,
             nombre: nombre.trim(),
             direccion: direccion.trim(),
             telefono: telefono.trim(),
-            imagen: "default-image.png"
+            imagen: req.file ? req.file.filename : "default-image.png" //Si existe req.file (si subieron un archivo), guarda el nombre de ese archivo en el JSON, y si no guarda el "default-image.png".
         }
+
 
         getSucursales.push(nuevaSucursal)
 
@@ -83,6 +84,6 @@ module.exports = {
 
         writeJson(getSucursales);
         
-        res.redirect('/admin/sucursales')
+        res.redirect('/admin/sucursales');
     }
 }
